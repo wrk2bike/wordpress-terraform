@@ -20,6 +20,8 @@ This project is configured to deploy via GitHub Actions. The workflow will:
 2. Plan changes on pull requests
 3. Apply changes when merged to main
 
+This workflow is designed to follow GitOps best practices where infrastructure changes are reviewed via pull requests before being applied when merged to the main branch.
+
 ### Required GitHub Secrets
 
 Set up the following secrets in your GitHub repository:
@@ -55,6 +57,12 @@ Before running the GitHub Actions workflow:
 1. Create an S3 bucket for storing Terraform state
 2. Create a DynamoDB table with a primary key of "LockID" for state locking
 3. Run the "Setup Terraform Backend" workflow or use the setup script locally
+
+You can do this by:
+
+* Setting up all required GitHub Secrets
+* Run the "Setup Terraform Backend" workflow in GitHub Actions to create the S3 bucket and DynamoDB table
+* Adding the backend configuration values to your GitHub Secrets
 
 ## Local Development
 
