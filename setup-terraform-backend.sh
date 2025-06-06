@@ -15,6 +15,7 @@ BUCKET_NAME="${2:-terraform-state-$(date +%s)}"  # Use timestamp for unique name
 TABLE_NAME="${3:-terraform-locks-$(date +%s)}"  # Use timestamp for unique name if not provided
 
 echo "Creating S3 bucket for Terraform state..."
+
 # Special handling for us-east-1 region which doesn't need LocationConstraint
 if [ "$REGION" = "us-east-1" ]; then
     aws s3api create-bucket \
